@@ -48,7 +48,6 @@
     - name: Ensure destination directory exists
       file:
         path: "/var/lib/tomcat9/webapps/"
-        state: directory
 
   handlers:
     - name: Restart Tomcat
