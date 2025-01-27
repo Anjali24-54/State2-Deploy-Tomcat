@@ -38,6 +38,14 @@
         port: 5757
         proto: tcp
 
+    # Remove Connector for port 5757 from server.xml
+    - name: Remove Connector for port 5757 from server.xml
+      lineinfile:
+        path: /etc/tomcat9/server.xml
+        regexp: '.*Connector port="5757".*'
+        state: absent  # Removes the line containing the Connector for port 5757
+
+    # Configure Tomcat to listen on port 5858
     - name: Configure Tomcat to listen on port 5858
       lineinfile:
         path: /etc/tomcat9/server.xml
@@ -48,6 +56,7 @@
     - name: Ensure destination directory exists
       file:
         path: "/var/lib/tomcat9/webapps/"
+        state: directory
 
   handlers:
     - name: Restart Tomcat
