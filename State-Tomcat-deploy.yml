@@ -31,6 +31,13 @@
         port: 5858
         proto: tcp
 
+    # Disable port 5757 by removing the UFW rule
+    - name: Remove port 5757 from UFW (disable port 5757)
+      ufw:
+        rule: deny
+        port: 5757
+        proto: tcp
+
     - name: Configure Tomcat to listen on port 5858
       lineinfile:
         path: /etc/tomcat9/server.xml
