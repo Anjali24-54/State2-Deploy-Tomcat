@@ -1,2 +1,1 @@
-defaults:
-  host_key_checking: false
+hostname: "172.26.41.35"
